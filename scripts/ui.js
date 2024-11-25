@@ -8,12 +8,15 @@ const ui = {
             dom.todosList.insertAdjacentHTML(
                 'beforeend',
                 `<li>
-                    <input type="checkbox" ${todo.done ? 'checked' : ''} id="${
-                    todo.id
-                }"/>
+                    <input type="checkbox" ${todo.done ? 'checked' : ''} id="${todo.id}"/>
                     <label for="${todo.id}">${todo.title}</label>
+                    <button class="delete-btn" data-id="${todo.id}">Delete</button>
                 </li>`
             );
         });
+    },
+    removeTodoFromUI(todoId) {
+        const todoElement = document.querySelector(`#todo-${todoId}`);
+        todoElement.remove();
     },
 };
